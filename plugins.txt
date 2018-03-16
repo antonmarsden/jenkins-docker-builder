@@ -3,7 +3,6 @@ pipeline-rest-api
 authentication-tokens
 junit
 workflow-durable-task-step
-ldapemail
 structs
 timestamper
 jsch
@@ -14,7 +13,6 @@ handlebars
 ldap
 workflow-api
 ace-editor
-windows-slaves
 display-url-api
 docker-workflow
 resource-disposer
@@ -24,13 +22,11 @@ github-api
 external-monitor-job
 git-server
 git
-pam-auth
 jackson2-api
 build-timeout
 credentials-binding
 scm-api
 branch-api
-pipeline-github-lib
 apache-httpcomponents-client-4-api
 pipeline-stage-tags-metadata
 pipeline-model-declarative-agent
@@ -49,7 +45,6 @@ workflow-scm-step
 pipeline-stage-view
 workflow-job
 github-branch-source
-ssh-slaves
 git-client
 workflow-cps
 script-security
@@ -62,7 +57,6 @@ workflow-basic-steps
 workflow-cps-global-lib
 token-macro
 pipeline-model-definition
-email-ext
 pipeline-model-extensions
 pipeline-milestone-step
 docker-commons
