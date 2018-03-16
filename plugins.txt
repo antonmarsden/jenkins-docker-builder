@@ -43,8 +43,10 @@ matrix-project
 antisamy-markup-formatter
 workflow-scm-step
 pipeline-stage-view
+docker-build-step
 workflow-job
 github-branch-source
+ssh-slaves
 git-client
 workflow-cps
 script-security
@@ -52,6 +54,7 @@ workflow-aggregator
 plain-credentials
 pipeline-stage-step
 durable-task
+docker-java-api
 workflow-support
 workflow-basic-steps
 workflow-cps-global-lib
