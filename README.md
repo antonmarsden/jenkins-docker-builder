@@ -1,1 +1,1 @@
-# jenkins-docker-slaves
+# jenkins-docker-builder
