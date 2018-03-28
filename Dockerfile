@@ -24,6 +24,10 @@ RUN [ "/bin/bash", "-c", "apt-get update && \
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
+# Install hadolint
+# NEED TO WAIT FOR LATEST DOCKER >= 17.05
+#COPY --from=hadolint/hadolint:latest /bin/hadolint /bin
+
 # drop back from root
 USER jenkins
 
