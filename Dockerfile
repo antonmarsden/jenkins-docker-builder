@@ -1,15 +1,17 @@
 FROM jenkins/jenkins:lts
-MAINTAINER anton.marsden@ninetyten.co.nz
+LABEL maintainer="anton.marsden@ninetyten.co.nz"
+# hadolint ignore=DL3002
 USER root
 
 # Install the latest Docker CE binaries
-RUN ["/bin/bash", "-c", "apt-get update && \
+# hadolint ignore=SC1091
+RUN [ "/bin/bash", "-c", "apt-get update && \
     apt-get -y install apt-transport-https \
       ca-certificates \
       curl \
       gnupg2 \
       software-properties-common && \
-    set -o pipefail && curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\")/gpg | apt-key add - && \
+    set -o pipefail && curl -fsSL \"https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\")/gpg\" | apt-key add - && \
     add-apt-repository \
       \"deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\") \
       $(lsb_release -cs) \
