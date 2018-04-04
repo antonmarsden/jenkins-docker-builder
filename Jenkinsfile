@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'build'
-    }
-    
-  }
+  agent any
   stages {
     stage('Pull repository') {
       steps {
