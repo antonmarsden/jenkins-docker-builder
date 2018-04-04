@@ -1,6 +1,6 @@
 # jenkins-docker-builder
 
-Uses the host's docker service to perform builds within Jenkins executors.
+A jenkins build that uses the host's docker service to perform builds within Jenkins executors. Basically, docker (and now hadolint) are installed on top of the base Jenkins image, and the necessary plugins to run docker within builds are installed.
 
 ## Example usage:
 
