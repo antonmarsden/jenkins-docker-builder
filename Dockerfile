@@ -30,6 +30,9 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 # Install hadolint
 COPY --from=hadolint /bin/hadolint /bin
 
+# Install container-structure-test
+RUN curl -sSLO https://storage.googleapis.com/container-structure-test/v1.0.0/container-structure-test && chmod +x container-structure-test && mv container-structure-test /bin/
+
 # drop back from root
 USER jenkins
 
