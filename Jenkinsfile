@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Hadolint check') {
       steps {
-        sh 'hadolint Dockerfile'
+        sh '''git ls-files --exclude=\'Dockerfile*\' --ignored |xargs --max-lines=1 hadolint
+'''
       }
     }
     stage('Build image') {
