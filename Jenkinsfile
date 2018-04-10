@@ -8,8 +8,7 @@ pipeline {
     }
     stage('Hadolint check') {
       steps {
-        sh '''git ls-files --exclude=\'Dockerfile*\' --ignored |xargs --max-lines=1 hadolint
-'''
+        sh 'git ls-files --exclude=\'Dockerfile*\' --ignored |xargs --max-lines=1 hadolint'
       }
     }
     stage('Build image') {
