@@ -14,15 +14,18 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-          docker.build("antonmarsden/jenkins-docker-builder", "--pull .")
+          docker.build(DOCKER_IMAGE_TARGET, "--pull .")
         }
         
       }
     }
     stage('Test image') {
       steps {
-        sh 'container-structure-test test --image antonmarsden/jenkins-docker-builder --config tests/*.yaml'
+        sh 'container-structure-test test --image $DOCKER_IMAGE_TARGET --config tests/*.yaml'
       }
     }
+  }
+  environment {
+    DOCKER_IMAGE_TARGET = 'antonmarsden/docker-image-builder'
   }
 }
