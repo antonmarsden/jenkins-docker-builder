@@ -6,6 +6,8 @@ A jenkins build that uses the host's docker service to perform builds within Jen
 * container-structure-test (for Docker image testing)
 * Docker plugins for Jenkins
 
+The included Jenkinsfile demonstrates how hadolint and container-structure test can be used in a Jenkins pipeline.
+
 Note that the volume mapping below (*-v /var/run/docker.sock:/var/run/docker.sock*) is essential, and means that the Jenkins docker binary will use the docker host's docker service.
 
 ## Example usage:
