@@ -19,5 +19,10 @@ pipeline {
         
       }
     }
+    stage('Test image') {
+      steps {
+        sh 'container-structure-test test --image antonmarsden/jenkins-docker-builder --config tests/*.yaml'
+      }
+    }
   }
 }
