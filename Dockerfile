@@ -31,7 +31,7 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 COPY --from=hadolint /bin/hadolint /bin
 
 # Install container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=v1.1.0
+ARG CONTAINER_STRUCTURE_TEST_VERSION=v1.2.2
 
 RUN curl -sSLO "https://storage.googleapis.com/container-structure-test/$CONTAINER_STRUCTURE_TEST_VERSION/container-structure-test" && chmod +x container-structure-test && mv container-structure-test /bin/
 
