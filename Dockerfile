@@ -8,19 +8,22 @@ USER root
 
 # Install the latest Docker CE binaries
 # hadolint ignore=SC1091
-RUN [ "/bin/bash", "-c", "apt-get update && \
-    apt-get -y install apt-transport-https \
+# hadolint ignore=DL3008
+RUN [ "/bin/bash", "-c", "set -o pipefail && apt-get update && \
+    apt-get --no-install-recommends -y install apt-transport-https \
       ca-certificates \
       curl \
       gnupg2 \
       software-properties-common && \
-    set -o pipefail && curl -fsSL \"https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\")/gpg\" | apt-key add - && \
+    curl -fsSL \"https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\")/gpg\" | apt-key add - && \
     add-apt-repository \
       \"deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo \"$ID\") \
       $(lsb_release -cs) \
       stable\" && \
    apt-get update && \
-   apt-get -y install docker-ce && \
+   apt-get --no-install-recommends -y install docker-ce && \
+   apt-get clean && \
+   rm -rf /var/lib/apt/lists/* && \
    adduser jenkins docker" ]
 
 # Install the necessary plugins
