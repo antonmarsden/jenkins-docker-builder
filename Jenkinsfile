@@ -16,12 +16,13 @@ pipeline {
         script {
           docker.build(DOCKER_IMAGE_TARGET, "--pull .")
         }
-        
+
       }
     }
     stage('Test image') {
       steps {
-        sh 'container-structure-test test --image $DOCKER_IMAGE_TARGET --config tests/*.yaml'
+        sh '''#!/bin/bash
+container-structure-test test --image $DOCKER_IMAGE_TARGET --config tests/*.yaml'''
       }
     }
   }
