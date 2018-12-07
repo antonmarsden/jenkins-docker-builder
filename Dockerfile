@@ -6,10 +6,9 @@ LABEL maintainer="anton.marsden@ninetyten.co.nz"
 # hadolint ignore=DL3002
 USER root
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install the latest Docker CE binaries
-# hadolint ignore=SC1091,DL3008
-RUN [ "apt-get update && \
+# hadolint ignore=SC1091,DL3008,DL4006
+RUN [ "/bin/bash", "-c", "set -o pipefail && apt-get update && \
     apt-get --no-install-recommends -y install apt-transport-https \
       ca-certificates \
       curl \
@@ -24,7 +23,7 @@ RUN [ "apt-get update && \
    apt-get --no-install-recommends -y install docker-ce && \
    apt-get clean && \
    rm -rf /var/lib/apt/lists/* && \
-   adduser jenkins docker" ]
+   /usr/sbin/adduser jenkins docker" ]
 
 # Install the necessary plugins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
