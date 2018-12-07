@@ -35,7 +35,7 @@ COPY --from=hadolint /bin/hadolint /bin
 # Install container-structure-test
 ARG CONTAINER_STRUCTURE_TEST_VERSION=v1.6.0
 
-RUN curl -sSLO https://storage.googleapis.com/container-structure-test/$CONTAINER_STRUCTURE_TEST_VERSION/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && mv container-structure-test-linux-amd64 /bin/container-structure-test
+RUN curl -fsSLO https://storage.googleapis.com/container-structure-test/$CONTAINER_STRUCTURE_TEST_VERSION/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && mv container-structure-test-linux-amd64 /bin/container-structure-test
 
 # drop back from root
 USER jenkins
