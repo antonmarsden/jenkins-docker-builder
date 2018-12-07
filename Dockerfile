@@ -8,7 +8,7 @@ USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install the latest Docker CE binaries
-# hadolint ignore=SC1091,ignore=DL3008
+# hadolint ignore=SC1091,DL3008
 RUN [ "apt-get update && \
     apt-get --no-install-recommends -y install apt-transport-https \
       ca-certificates \
