@@ -21,8 +21,7 @@ pipeline {
     }
     stage('Test image') {
       steps {
-        sh '''#!/bin/bash
-container-structure-test test --image $DOCKER_IMAGE_TARGET --config tests/*.yaml'''
+        sh '/bin/container-structure-test test --image $DOCKER_IMAGE_TARGET --config tests/*.yaml'
       }
     }
   }
